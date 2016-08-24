@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:Ada.Framework.Extensions.IO.Encoding.EncodingExt">
+            <summary>
+            Clase con métodos de extensión para la conversión de Encodings o cadenas codificadas.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Extensions.IO.Encoding.EncodingExt.ToStr(System.Byte[])">
+            <summary>
+            Convierte la instancia actual de arreglo de bytes en su representación como cadena, mediante la codificación UTF-8.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="array">Instancia actual codificada en bytes.</param>
+            <returns>Representación como cadena en UTF-8.</returns>
+        </member>
+        <member name="M:Ada.Framework.Extensions.IO.Encoding.EncodingExt.ToByteArray(System.String)">
+            <summary>
+            Convierte la instancia actual de cadena en su representación como arreglo de bytes, mediante la codificación UTF-8.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="texto">Cadena original.</param>
+            <returns>Representación codificada en bytes.</returns>
+        </member>
+        <member name="T:Ada.Framework.Extensions.IO.StreamExt">
+            <summary>
+            Clase con métodos de extensión para instancias de <see cref="T:System.IO.Stream"/>.
+            Estas implementaciones se encuentran integradas en versiones posteriores del framework .NET.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Extensions.IO.StreamExt.WriteLine(System.IO.Stream,System.String)">
+            <summary>
+            Escribe una linea de texto en el <see cref="T:System.IO.Stream"/> actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="stream">Instancia de referencia (implícita).</param>
+            <param name="texto">Cadena de caracteres a escribir.</param>
+        </member>
+        <member name="M:Ada.Framework.Extensions.IO.StreamExt.Write(System.IO.Stream,System.String)">
+            <summary>
+            Escribe texto (sin auto-incorporar salto de linea) en el <see cref="T:System.IO.Stream"/> actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="stream">Instancia de referencia (implícita).</param>
+            <param name="texto">Cadena de caracteres a escribir.</param>
+        </member>
+        <member name="M:Ada.Framework.Extensions.IO.StreamExt.ReadLine(System.IO.Stream,System.Int64@)">
+            <summary>
+            Lee una linea a partir de una posicion a partir del inicio de una secuencia <see cref="T:System.IO.Stream"/>.
+            Al finalizar la lectura el valor de "posicionInicial" será actualizado hasta donde quedo la lectura.
+            Útil para leer de arriba hacia abajo por bloques.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="stream">Instancia de referencia (implícita).</param>
+            <param name="posicionInicial">Posicion a saltarse desde el inicio de la secuencia.</param>
+            <returns>Cadena de caracteres leída.</returns>
+        </member>
+        <member name="M:Ada.Framework.Extensions.IO.StreamExt.ReadLineFromEnd(System.IO.Stream,System.Int64@)">
+            <summary>
+            Lee una linea a partir de una posicion a partir del final de una secuencia <see cref="T:System.IO.Stream"/>.
+            Al finalizar la lectura el valor de "posicionInicial" será actualizado hasta donde quedo la lectura.
+            Útil para leer de abajo hacia arriba por bloques.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="stream">Instancia de referencia (implícita).</param>
+            <param name="posicionInicial">Posición a iniciar la lectura, que por lo general es el final del <see cref="T:System.IO.Stream"/>.</param>
+            <returns>Cadena de caracteres leída.</returns>
+        </member>
+        <member name="M:Ada.Framework.Extensions.IO.StreamExt.ReadToEnd(System.IO.Stream)">
+            <summary>
+            Lee todo el documento desde el inicio hasta el final y retorna la representación en Cadena de caracteres.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="stream">Instancia de referencia (implícita).</param>
+            <returns>Cadena de caracteres leída.</returns>
+        </member>
+        <member name="M:Ada.Framework.Extensions.IO.StreamExt.Read(System.IO.Stream,System.Int32,System.IO.SeekOrigin,System.Int32)">
+            <summary>
+            Lee una cantidad de bytes desde un origen , con un cierto desplazamiento y lo retorna como Cadena de caracteres.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="stream">Instancia de referencia (implícita).</param>
+            <param name="cantidadBytes">Cantidad de bytes a leer.</param>
+            <param name="origen">Posición del texto al que aplicar el desplazamiento.</param>
+            <param name="desplazamiento">Cantidad de posiciones a mover el cursor desde el origen.</param>
+            <returns>Cadena de caracteres leída.</returns>
+        </member>
+        <member name="T:Ada.Framework.Extensions.Threading.ThreadExtensions">
+            <summary>
+            Clase con métodos de extensión para un hilo o subproceso (Thread).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 03/11/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Extensions.Threading.ThreadExtensions.Guardar(System.Threading.Thread,System.String,System.Object)">
+            <summary>
+            Guarda un objeto o valor en un espacio de memoria disponible sólo para el hilo actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 03/11/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="hilo">Hilo de origen.</param>
+            <param name="nombre">Nombre del valor a guardar.</param>
+            <param name="data">Valor a guardar.</param>
+        </member>
+        <member name="M:Ada.Framework.Extensions.Threading.ThreadExtensions.Obtener(System.Threading.Thread,System.String)">
+            <summary>
+            Obtiene un objeto guardado en el hilo actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 03/11/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="hilo">Hilo de origen.</param>
+            <param name="nombre">Nombre del valor guardado.</param>
+            <returns>Valor guardado.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,826 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Data.Notifications</name>
+    </assembly>
+    <members>
+        <member name="T:Ada.Framework.Data.Notifications.Business.MensajeBO">
+            <summary>
+            Contiene las operaciones de negocio que se realizarán sobre la entidad mensaje.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.Business.MensajeBO.DAO">
+            <summary>
+            Obtiene o establece el DAO utilizado por la instancia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Business.MensajeBO.#ctor">
+            <summary>
+            Constructor que inicializa la instancia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Business.MensajeBO.Agregar(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Persiste una nueva entidad.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a persistir.</param>
+            <returns>Mensaje persistido.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Business.MensajeBO.Modificar(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Persiste los cambios de una entidad.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a persistir.</param>
+            <returns>Mensaje persistido.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Business.MensajeBO.Eliminar(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Elimina una entidad de base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a eliminar.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Business.MensajeBO.Existe(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Determina la existencia de una entidad en base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a comprobar.</param>
+            <returns><code>true</code> de existir, o <code>false</code> de lo contrario.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Business.MensajeBO.ObtenerTodos">
+            <summary>
+            Obtiene todas las entidades persistidas.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Colección de mensajes.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Business.MensajeBO.ObtenerSegunID(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Obtiene la entidad según si identificador(es).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a buscar.</param>
+            <returns>Mensaje persistido.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Business.MensajeBO.ObtenerSegunFiltro(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Obtiene las entidades según los valores de un filtro.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="filtro">Mensaje de filtro</param>
+            <returns>Colección de mensajes que cumplen el filtro.</returns>
+        </member>
+        <member name="T:Ada.Framework.Data.Notifications.DAO.MensajeDAO">
+            <summary>
+            Contiene las operaciones CRUD que se realizarán sobre la entidad mensaje.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.DAO.MensajeDAO.Conexion">
+            <summary>
+            Obtiene la conexión del DAO.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.DAO.MensajeDAO.NombreConexion">
+            <summary>
+            Obtiene el nombre de la conexión de base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.#ctor">
+            <summary>
+            Constructor que inicializa la instancia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.Agregar(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Persiste una nueva entidad.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a persistir.</param>
+            <returns>Mensaje persistido.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.Eliminar(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Elimina una entidad de base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a eliminar.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.Existe(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Determina la existencia de una entidad en base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a comprobar.</param>
+            <returns><code>true</code> de existir, o <code>false</code> de lo contrario.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.Modificar(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Persiste los cambios de una entidad.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a persistir.</param>
+            <returns>Mensaje persistido.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.ObtenerSegunFiltro(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Obtiene las entidades según los valores de un filtro.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="filtro">Mensaje de filtro</param>
+            <returns>Colección de mensajes que cumplen el filtro.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.ObtenerSegunID(Ada.Framework.Data.Notifications.TO.MensajeTO)">
+            <summary>
+            Obtiene la entidad según si identificador(es).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje a buscar.</param>
+            <returns>Mensaje persistido.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.ObtenerTodos">
+            <summary>
+            Obtiene todas las entidades persistidas.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Colección de mensajes.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.Mapear(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Mapea según un registro de base de datos, los valores en la entidad correspondiente.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="registro">Representa un registro de base de datos.</param>
+            <returns>Mensaje cargado.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.DAO.MensajeDAO.AgregarParametros(Ada.Framework.Data.Notifications.TO.MensajeTO,Ada.Framework.Data.DBConnector.Queries.Query)">
+            <summary>
+            Agrega los valores de una entidad como parámetros de una consulta.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/08/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="entidad">Mensaje con valores de entrada.</param>
+            <param name="consulta">Consulta a ejecutar.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.Notifications.Exceptions.NotificacionesException">
+            <summary>
+            Clase que representa una excepción al obtener los mensajes. Esta clase no puede heredarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.Exceptions.NotificacionesException.Notificacion">
+            <summary>
+            Obtiene o establece la notificación asociada a la excepción.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Exceptions.NotificacionesException.#ctor">
+            <summary>
+            Constructor sin parámetros.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Exceptions.NotificacionesException.#ctor(System.String)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Exceptions.NotificacionesException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción, y la excepcion específica que la ocacionó.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+            <param name="innerException">Excepción que la lazó.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Exceptions.NotificacionesException.#ctor(Ada.Framework.Data.Notifications.Notificacion)">
+            <summary>
+            Constructor de la clase que proporciona una notificacion asociada a la excepcion actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="notificacion">Notificación asociada a la instancia.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.Notifications.TO.Severidad">
+            <summary>
+            Representa el nivel de severidad de los mensajes.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.TO.Severidad.#ctor(System.String)">
+            <summary>
+            Constructor interno (protected) que permite definir tipos de Severidad. 
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="codigo">Código real del estado.</param>
+        </member>
+        <member name="F:Ada.Framework.Data.Notifications.TO.Severidad.Alert">
+            <summary>
+            Representa una advertencia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.Notifications.TO.Severidad.Error">
+            <summary>
+            Representa un error grave, pero que no impide continiuar.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.Notifications.TO.Severidad.Fatal">
+            <summary>
+            Representa un error que impide continiuar.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.Notifications.TO.Severidad.Info">
+            <summary>
+            Representa una información.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.Notifications.TO.Severidad.Success">
+            <summary>
+            Representa un mensaje de éxito.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.Notifications.TO.MensajeTO">
+            <summary>
+            Representa un mensaje que se debe mostrar al usuario.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Tabla">
+            <summary>
+            Permite obtener el nombre de la tabla a la cual pertenece el mensaje.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Codigo">
+            <summary>
+            Permite obtener el código único del mensaje.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Idioma">
+            <summary>
+            Permite obtener el idioma del mensaje actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Pais">
+            <summary>
+            Permite obtener el país específico para el idioma del mensaje actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Tipo">
+            <summary>
+            Obtiene o establecer el nivel de severidad del mensaje.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Puntero">
+            <summary>
+            Obtiene el puntero a un fragmento del log (GUID).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Campo">
+            <summary>
+            Obtiene el campo al que esta asociado el mensaje.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Excepcion">
+            <summary>
+            Permite obtener la excepción lanzada.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.RazonTecnica">
+            <summary>
+            Permite obtener un mensaje técnico con la razón de la excepción lanzada.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.Glosa">
+            <summary>
+            Obtiene la glosa completa a mostrar al usuario.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.GlosaResumida">
+            <summary>
+            Obtiene la glosa resumida a mostrar al usuario.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.LinkAudio">
+            <summary>
+            Obtiene el enlace de audio con información o ayuda descriptiva al error.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.LinkVideo">
+            <summary>
+            Obtiene un enlace de video con información o ayuda relacionada al error.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.TO.MensajeTO.DatosAdicionales">
+            <summary>
+            Permite obtener los datos adicicionales de contexto del mensaje.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.TO.MensajeTO.#ctor">
+            <summary>
+            Constructor interno que inicializa la instacia.
+            </summary>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.TO.MensajeTO.Clone">
+            <summary>
+            Copia en una nueva instancia el estado de la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Nueva instancia de MensajeTO.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.TO.MensajeTO.Validar">
+            <summary>
+            Valida los valores principales del objeto.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 15/06/2016 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>
+                Retorna <code>true</code> en caso de ser válido, o <code>false</code> de lo contrario.
+            </returns>
+        </member>
+        <member name="T:Ada.Framework.Data.Notifications.Notificacion`1">
+            <summary>
+            Representa la respuesta de un método, encapsulando la respuesta original y los mensajes que se desea desplegar a capa vista.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo del objeto a envolver.</typeparam>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.Notificacion`1.Respuesta">
+            <summary>
+            Permite obtener o establecer el objeto de respuesta que contiene la instancia actual de Notificacion.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.Notifications.Notificacion">
+            <summary>
+            Representa una notificación con una colección de mensajes para mostrar al usuario.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.Notifications.Notificacion.TABLA_POR_DEFECTO_MENSAJES">
+            <summary>
+            Tabla a la por defecto para buscar los mensajes comunes de la aplicación.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.Notificacion.IdiomaActual">
+            <summary>
+            Permite obtener o establecer el idioma actual del hilo.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.Notificacion.PaisActual">
+            <summary>
+            Permite obtener o establecer el pais actual (para el idioma) del hilo.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.Notifications.Notificacion.mensajes">
+            <summary>
+            Lista de mensajes cargada desde base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.Notificacion.HayError">
+            <summary>
+            Obtiene un valor booleano que indica si existe un mensaje de error.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.Notificacion.HayExcepcion">
+            <summary>
+            Obtiene un valor booleano que indica si existe un mensaje originado por una excepción.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.Notifications.Notificacion.mensajesInstancia">
+            <summary>
+            Mensajes que posee la instancia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.Notifications.Notificacion.Mensajes">
+            <summary>
+            Permite obtener la lista de mensajes que contiene la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.#ctor">
+            <summary>
+            Constructor de la clase que inicializa las propiedades de la instancia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.AgregarMensaje``1(System.String,Ada.Framework.Core.Enumeracion{``0},System.String,System.String,System.String,System.String,System.Exception,System.String)">
+            <summary>
+            Constructor de la clase que inicializa las propiedades de la instancia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo del código de la enumeración.</typeparam>
+            <param name="tabla">Tabla de mensajes.</param>
+            <param name="codigo">Código del mensaje.</param>
+            <param name="campo">Campo asociado al error.</param>
+            <param name="puntero">MethodGUID de Log4Me.</param>
+            <param name="idioma">Idioma del mensaje.</param>
+            <param name="pais">Pais específico para el idioma del mensaje.</param>
+            <param name="excepcion">Excepción lanzada.</param>
+            <param name="razonTecnica">Glosa técnica o explicación de la excepción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.AgregarMensaje(System.String,Ada.Framework.Data.Notifications.TO.Severidad,System.String,System.String,System.Exception,System.String)">
+            <summary>
+            Agregar un mensaje estático a la notificación.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="glosa">Glosa del mensaje.</param>
+            <param name="tipo">Nivel de severidad del mensaje.</param>
+            <param name="campo">Campo asociado al error.</param>
+            <param name="puntero">MethodGUID de Log4Me.</param>
+            <param name="excepcion">Excepción lanzada.</param>
+            <param name="razonTecnica">Glosa técnica o explicación de la excepción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.AgregarMensaje(System.String,System.String,System.String,System.String,System.String,System.String,System.Exception,System.String)">
+            <summary>
+            Constructor de la clase que inicializa las propiedades de la instancia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="tabla">Tabla de mensajes.</param>
+            <param name="codigo">Código del mensaje.</param>
+            <param name="campo">Campo asociado al error.</param>
+            <param name="puntero">MethodGUID de Log4Me.</param>
+            <param name="idioma">Idioma del mensaje.</param>
+            <param name="pais">País específico para el idioma del mensaje.</param>
+            <param name="excepcion">Excepción lanzada.</param>
+            <param name="razonTecnica">Glosa técnica o explicación de la excepción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.Hay(Ada.Framework.Data.Notifications.TO.Severidad)">
+            <summary>
+            Comprueba la existencia de mensajes, según el nivel de severidad especificado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <seealso cref="T:Ada.Framework.Data.Notifications.TO.Severidad"/>
+            <param name="severidad">Nivel de severidad.</param>
+            <returns><value>true</value> de existir alguno, o <value>false</value> de lo contrario.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.HayExcepcionPorTipo``1">
+            <summary>
+            Comprueba la existencia de mensajes, según el tipo de excepción especificado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo excepción.</typeparam>
+            <returns><value>true</value> de existir alguno, o <value>false</value> de lo contrario.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.Recargar">
+            <summary>
+            Obtiene los mensajes de base de datos y los vuelve a cargar en memoria.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.ObtenerMensaje(System.String,System.String,System.String,System.String)">
+            <summary>
+            Obtiene un mensaje según la tabla y el código recivido.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="tabla">Tabla de mensajes.</param>
+            <param name="codigo">Código del mensaje.</param>
+            <param name="idioma">Idioma del mensaje.</param>
+            <param name="pais">Pais específico para el idioma del mensaje.</param>
+            <returns>Representa un mensaje que se debe mostrar al usuario.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.Unir(Ada.Framework.Data.Notifications.Notificacion[])">
+            <summary>
+            Agrega los mensajes de la instancia enviada a la actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="notificaciones">Colección de <see cref="T:Ada.Framework.Data.Notifications.Notificacion"/>Notificación.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.Notifications.Notificacion.Unir(System.Collections.Generic.IList{Ada.Framework.Data.Notifications.Notificacion})">
+            <summary>
+            Agrega los mensajes de la instancia enviada a la actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="notificaciones">Colección de <see cref="T:Ada.Framework.Data.Notifications.Notificacion"/>Notificación.</param>
+        </member>
+    </members>
+</doc>

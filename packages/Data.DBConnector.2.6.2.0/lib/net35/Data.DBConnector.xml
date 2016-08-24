@@ -1,0 +1,2231 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Data.DBConnector</name>
+    </assembly>
+    <members>
+        <member name="T:Ada.Framework.Data.DBConnector.ConexionBaseDatosFactory">
+            <summary>
+            Factoría de la conexión a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatosFactory.ObtenerConexionBaseDatos(Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO)">
+            <summary>
+            Obtiene una implementación de la conexion a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="db">Base de datos.</param>
+            <returns>Implementación especificada como instancia.</returns>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">¡No se puede crear la instancia de base de datos  + db.Instancia + !</exception>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos">
+            <summary>
+            Clase cuya funcionalidad es manejar las configuraciones de conexión a base de datos. Esta clase no puede heredarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.fechaUltimaModificacionArchivo">
+            <summary>
+            Contiene la fecha de última modificación del archivo de conexiones (DataBaseConnections.xml).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.conexiones">
+            <summary>
+            Contiene la lista de conexiones en memoria que han sido extraídas del archivo de conexiones (DataBaseConnections.xml).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.Conexiones">
+            <summary>
+            Obtiene o establece la lista de conexiones del archivo de conexiones (DataBaseConnections.xml).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.conectores">
+            <summary>
+            Contiene la lista de conectores a base de datos que han sido extraídas del archivo de conexiones (DataBaseConnections.xml).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.Conectores">
+            <summary>
+            Obtiene o establece los conectores a bases de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.DataBaseConnectionsPath">
+            <summary>
+            Obtiene o establece la ruta del archivo de conexiones a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.DataBaseConnectionsValidatorPath">
+            <summary>
+            Obtiene o establece la ruta del archivo validador (Xml Schema) de conexiones a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.#ctor(System.String,System.String)">
+            <summary>
+            Constructor que inicializa la instancia con las rutas del archivo de configuración y validación.
+            </summary>
+            <param name="dataBaseConnectionsPath">Ruta del archivo XML de configuración.</param>
+            <param name="dataBaseConnectionsValidatorPath">Ruta del archivo XML que contiene el esquema del archivo de configuración. Xml Schema.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.ObtenerConexion(System.String)">
+            <summary>
+            Obtiene la conexión a la base de datos. Sus ConnectionString, tipo de base de datos, etc.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre de la conexión especificada en el archivo DataBaseConnections.xml.</param>
+            <returns>Representación de la configuración de la base de datos.</returns>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzada de no existir la conexión solicitada.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.ObtenerConexionBaseDatos(System.String)">
+            <summary>
+            Obtiene la conexión a la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 17/08/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre de la conexión especificada en el archivo DataBaseConnections.xml.</param>
+            <returns></returns>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzada de no existir la conexión solicitada.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">¡No se puede crear la instancia de base de datos  + db.Instancia + !</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.CargarConfiguracion(System.Boolean)">
+            <summary>
+            Carga la configuración desde el archivo XML a memoria. De paso lo valida.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.GuardarConfiguracion">
+            <summary>
+            Guarda la configuración de Conectores y Conexiones en el archivo XML de configuración.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.CargarXML(System.Xml.XmlDocument@,System.Xml.XmlReader@)">
+            <summary>
+            Carga y valida el archivo Xml a los parámetros de salida correspondientes.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="doc">Instancia del documento XML.</param>
+            <param name="reader">Instancia del lector XML.</param>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatos.ErrorAlValidar(System.Object,System.Xml.Schema.ValidationEventArgs)">
+            <summary>
+            Evento lanzado al fallar la validación del archivo Xml.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="sender">Origen del evento.
+            Nota: Determine el tipo de un remitente antes de usarlo
+                en el código.No puede suponer que el remitente es una instancia de un tipo
+                determinado.Tampoco se garantiza que el remitente no sea nulo.Rodee siempre
+                las conversiones de tipos con lógica de control de errores.</param>
+            <param name="e">Devuelve información detallada relacionada con ValidationEventHandler.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatosFactory">
+            <summary>
+            Factoría de la configuración de la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatosFactory.NOMBRE_ARCHIVO_CONEXION">
+            <summary>
+            Contiene en sólo lectura, el nombre del archivo de conexiones a bases de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatosFactory.NOMBRE_ARCHIVO_VALIDADOR_XML_CONEXION">
+            <summary>
+            Contiene en sólo lectura, el nombre del archivo que valida el xml de conexiones a bases de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatosFactory.ObtenerConfiguracionDeBaseDatos">
+            <summary>
+            Obtiene la implementación para la configuración de la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Una implementación de <see cref="T:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos"></see>.</returns>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzada al no encontrar la declaración de sección en el archivo de configuración.</exception>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzada al no encontrar el archivo en la ruta especificada por DataBaseConnectionsPath.</exception>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzada al no encontrar el archivo en la ruta especificada por DataBaseConnectionsValidatorPath.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.ConfiguracionBaseDatosFactory.ObtenerConfiguracionDeBaseDatos(System.String,System.String)">
+            <summary>
+            Obtiene la implementación para la configuración de la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Una implementación de <see cref="T:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos"></see>.</returns>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Connections.Entities.ConectorTO">
+            <summary>
+            Representación de los datos de un conector a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.Entities.ConectorTO.Name">
+            <summary>
+            Obtiene o establece el nombre del conector.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.Entities.ConectorTO.Instance">
+            <summary>
+            Obtiene o establece la instancia principal del conector.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.Entities.ConectorTO.AssemblyName">
+            <summary>
+            Obtiene o establece el nombre del ensamblado que contiene al conector.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.Entities.ConectorTO.AssemblyPath">
+            <summary>
+            Obtiene o establece la ruta completa del ensamblado. Opcional.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Connections.Entities.ConfiguracionTO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.Entities.ConfiguracionTO.Conexiones">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.Entities.ConfiguracionTO.Conectores">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">
+            <summary>
+            Clase que representa una excepción lanzada por una configuración de las conexiones incorrecta. Esta clase no puede heredarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException.#ctor">
+            <summary>
+            Constructor sin parámetros.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException.#ctor(System.String)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción, y la excepcion específica que la ocacionó.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+            <param name="innerException">Excepción que la lazó.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos">
+            <summary>
+            Contrato de la implementación encargada de leer la configuración.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.Conectores">
+            <summary>
+            Obtiene o establece los conectores a bases de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.Conexiones">
+            <summary>
+            Obtiene o establece la lista de conexiones del archivo de conexiones (DataBaseConnections.xml).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.DataBaseConnectionsPath">
+            <summary>
+            Obtiene o establece la ruta del archivo de conexiones a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.DataBaseConnectionsValidatorPath">
+            <summary>
+            Obtiene o establece la ruta del archivo validador (Xml Schema) de conexiones a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.ObtenerConexion(System.String)">
+            <summary>
+            Obtiene la conexión a la base de datos. Sus ConnectionString, tipo de base de datos, etc.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre de la conexión especificada en el archivo DataBaseConnections.xml.</param>
+            <returns>Representación de la configuración de la base de datos.</returns>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzada de no existir la conexión solicitada.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.ObtenerConexionBaseDatos(System.String)">
+            <summary>
+            Obtiene la conexión a la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 17/08/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre de la conexión especificada en el archivo DataBaseConnections.xml.</param>
+            <returns></returns>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzada de no existir la conexión solicitada.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">¡No se puede crear la instancia de base de datos  + db.Instancia + !</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.CargarConfiguracion(System.Boolean)">
+            <summary>
+            Carga la configuración desde el archivo XML a memoria. De paso lo valida.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.GuardarConfiguracion">
+            <summary>
+            Guarda la configuración de Conectores y Conexiones en el archivo XML de configuración.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <exception cref="T:Ada.Framework.Util.FileMonitor.Exceptions.ArchivoNoEncontradoException">Lanzado al no encontrar el archivo XML o su esquema.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Connections.Exceptions.ConfiguracionBaseDatosException">Lanzado al encontrar al archivo de configuración inválido.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Connections.IConfiguracionBaseDatos.Serializar">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO">
+            <summary>
+            Representación de la configuración de la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO.Name">
+            <summary>
+            Propiedad que obtiene o establece el nombre de la conexión.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO.ConnectionString">
+            <summary>
+            Propiedad que obtiene o establece la cadena de conexión.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO.Instance">
+            <summary>
+            Obtiene o establece el nombre de la instancia que representa la conexión según el tipo de base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO.Type">
+            <summary>
+            Obtiene o establece el tipo de la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO.AssemblyName">
+            <summary>
+            Obtiene o establece el ensamblado que contiene la instancia de conexión a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO.AssemblyPath">
+            <summary>
+            Obtiene o establece la ruta completa del ensamblado. Opcional.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Entities.Parameter.ColeccionParametroSql">
+            <summary>
+            Representación de una colección de parametros para una consulta sql. Esta clase no puede heredarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Entities.Parameter.ColeccionParametroSql.parametros">
+            <summary>
+            Contiene la lista de parametros.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.Parameter.ColeccionParametroSql.Parametros">
+            <summary>
+            Permite obtener los parametros del procedimiento almacenado actual.
+            Instancia la colección de no estarlo.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.Parameter.ColeccionParametroSql.Count">
+            <summary>
+            Permite obtener el número de parametros de la consulta.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.ColeccionParametroSql.AddTO(System.Object)">
+            <summary>
+            Permite agregar un objeto como parámetro, para posteriormente acceder a sus propiedades.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 29/12/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="objeto"></param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.ColeccionParametroSql.Add(System.String,System.Object)">
+            <summary>
+            Agrega un parametro para la ejecución de un Procedimiento Almacenado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre del parámetro.</param>
+            <param name="valor">Valor del parámetro.</param>
+            <seealso cref="M:Ada.Framework.Data.DBConnector.Entities.Parameter.ColeccionParametroSql.Add(System.String,System.Object,System.Nullable{System.Data.DbType})"></seealso>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.ColeccionParametroSql.Add(System.String,System.Object,System.Nullable{System.Data.DbType})">
+            <summary>
+            Agrega un parametro para la ejecución de un Procedimiento Almacenado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre del parámetro.</param>
+            <param name="valor">Valor del parámetro.</param>
+            <param name="tipo">Tipo (Sql) del parámetro.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Entities.Parameter.ParametroSql">
+            <summary>
+            Representación de un parámetro de un Procedimiento Almacenado. Esta clase no puede heredarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.Parameter.ParametroSql.Nombre">
+            <summary>
+            Permite obtener o establecer el nombre del parámetro.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.Parameter.ParametroSql.Tipo">
+            <summary>
+            Permite obtener o establecer el tipo Sql del parámetro.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.Parameter.ParametroSql.Valor">
+            <summary>
+            Permite obtener o establecer el valor C# del parámetro.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.ParametroSql.ObtenerValor">
+            <summary>
+            Obtiene el valor de un parámetro, para ser reemplazado en una consulta SQL.
+            Incluye comillas simples a la respuesta si el tipo de parámetro lo requiere.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla">
+            <summary>
+            Representación de un DataTable.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.dataTable">
+            <summary>
+            Campo que contiene el <see cref="T:System.Data.DataTable"/> que generará la entidad.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.ColumnaPropiedad">
+            <summary>
+            Diccionario que asocia el nombre de una columna con la propiedad del TO. Utilizado al cargar un TO.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.Fila">
+            <summary>
+            Fila de <see cref="T:System.Data.DataTable"/> para agregar los valores.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.#ctor">
+            <summary>
+            Constructor sin parámetros que instancia los campos y propiedades de la instancia.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.AgregarColumna(System.String)">
+            <summary>
+            Agrega una columna a la estructura del <see cref="T:System.Data.DataTable"/>.
+            Utilizar con método <see cref="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.AgregarValor(System.String,System.Object)"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre de la columna.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.AgregarColumna(System.String,System.Type)">
+            <summary>
+            Agrega una columna especificando su tipo, a la estructura del <see cref="T:System.Data.DataTable"/>.
+            Utilizar con método <see cref="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.AgregarValor(System.String,System.Object)"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre de la columna.</param>
+            <param name="tipo">Tipo del valor a asignar a la columna.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.AsociarPropiedad(System.String,System.String)">
+            <summary>
+            Asocia el valor de una columna con una propiedad del TO. Además agrega la columna a la estructura del <see cref="T:System.Data.DataTable"/>.
+            Utilizar con método <see cref="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.Cargar``1(System.Collections.Generic.IList{``0})"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="columna">Nombre de la columna.</param>
+            <param name="propiedad">Propiedad del TO.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.AsociarPropiedad(System.String,System.Type,System.String)">
+            <summary>
+            Asocia el valor de una columna con una propiedad del TO. Además agrega la columna y su tipo a la estructura del <see cref="T:System.Data.DataTable"/>.
+            Utilizar con método <see cref="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.Cargar``1(System.Collections.Generic.IList{``0})"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="columna">Nombre de la columna.</param>
+            <param name="tipo">Tipo del valor a asignar a la columna.</param>
+            <param name="propiedad">Propiedad del TO.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.AgregarValor(System.String,System.Object)">
+            <summary>
+            Agregar un valor a la fila actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="columna">Nombre de la columna.</param>
+            <param name="valor">Valor de la columna.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.AgregarFila">
+            <summary>
+            Agrega la fila al <see cref="T:System.Data.DataTable"/> y crea una nueva fila.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Parameter.Tabla.Cargar``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Carga los datos de una colección de objetos según las asociaciones de propiedad.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo del TO.</typeparam>
+            <param name="elementos">Colección de elementos.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Entities.Query.RespuestaEjecucion`1">
+            <summary>
+            Representación de la respuesta de ejecución de una comando. Esta clase no puede heredarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo de respuesta.</typeparam>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Entities.Query.RespuestaEjecucion`1.propiedadesOmitidas">
+            <summary>
+            Contiene las propiedades no mapeadas por DBConnector.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Entities.Query.RespuestaEjecucion`1.#ctor">
+            <summary>
+            Constructor que instancia las propiedades del objeto.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.Query.RespuestaEjecucion`1.Respuesta">
+            <summary>
+            Obtiene o establece la respuesta de ejecución.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Entities.Query.RespuestaEjecucion`1.PropiedadesOmitidas">
+            <summary>
+            Obtiene las propiedades no mapeadas por DBConnector.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Exceptions.DBConnectorException">
+            <summary>
+            Clase base de una excepción lanzada por DBConnector.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.DBConnectorException.#ctor">
+            <summary>
+            Constructor sin parámetros.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.DBConnectorException.#ctor(System.String)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.DBConnectorException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción, y la excepcion específica que la ocacionó.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+            <param name="innerException">Excepción que la lazó.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">
+            <summary>
+            Clase que representa una excepción al ejecutar una operación en base de datos. Esta clase no puede heredarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException.#ctor">
+            <summary>
+            Constructor sin parámetros.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException.#ctor(System.String)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción, y la excepcion específica que la ocacionó.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+            <param name="innerException">Excepción que la lazó.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">
+            <summary>
+            Clase que representa una excepción al conectarse a la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.ConexionException.#ctor">
+            <summary>
+            Constructor sin parámetros.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.ConexionException.#ctor(System.String)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.ConexionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción, y la excepcion específica que la ocacionó.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+            <param name="innerException">Excepción que la lazó.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Exceptions.PreparacionException">
+            <summary>
+            Clase que representa una excepción al preparar una consulta u otra operación por DBConnector.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.PreparacionException.#ctor">
+            <summary>
+            Constructor sin parámetros.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.PreparacionException.#ctor(System.String)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Exceptions.PreparacionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor de la clase que proporciona un mensaje de descripción, y la excepcion específica que la ocacionó.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="mensaje">Mensaje de descripción.</param>
+            <param name="innerException">Excepción que la lazó.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.ConexionBaseDatos">
+            <summary>
+            Representa la conexión a una base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.ConexionBaseDatos.conexion">
+            <summary>
+            Obtiene o establece la base de datos de la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.ConexionBaseDatos.transaccionInterna">
+            <summary>
+            Obtiene o establece la transacción que agrupa las operaciones creadas mediante la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.ConexionBaseDatos.dbConnection">
+            <summary>
+            Permite obtener o establecer la representación de una conexión abierta a un origen de datos. La implementan los
+            proveedores de datos de .NET Framework que tienen acceso a bases de datos relacionales. Es un enlace a la propiedad DBConnection.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.ConexionBaseDatos.DBConnection">
+            <summary>
+            Permite obtener o establecer la representación de una conexión abierta a un origen de datos. La implementan los
+            proveedores de datos de .NET Framework que tienen acceso a bases de datos relacionales.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.ConexionBaseDatos.Conexion">
+            <summary>
+            Obtiene la base de datos de la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.ConexionBaseDatos.AutoConectarse">
+            <summary>
+            Obtiene o establece el valor que indica si se debe abrir y cerrar automáticamente la conexión.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.ConexionBaseDatos.Transaccion">
+            <summary>
+            Obtiene la transacción que agrupa las operaciones creadas mediante la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.#ctor(Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO)">
+            <summary>
+            Constructor que instancia el tipo de base de datos que representa la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="conexionBaseDatos">Base de datos.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.Abrir">
+            <summary>
+            Abre una conexión de base de datos con la configuración indicada por la propiedad <see cref="P:Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO.ConnectionString"/> del la implementación.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.Cerrar">
+            <summary>
+            Cierra la conexión con la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.CrearTransaccion(System.Data.IsolationLevel)">
+            <summary>
+            Crea una transacción para agrupar las ejecuciones de la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="isolationLevel">Especifica el comportamiento de bloqueo de la transacción para la conexión.Opcional.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.CrearQuery">
+            <summary>
+            Obtiene una implementación de la representación de una consulta a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Implementación de una  consulta a base de datos.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.CrearProcedimientoAlmacenado">
+            <summary>
+            Obtiene una implementación de un procedimiento almacenado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Implementación de un procedimiento almacenado.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.CrearQueryDinamica(System.Reflection.MethodBase,System.String)">
+            <summary>
+            Obtiene una implementación de una consulta que puede cambiar según la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 07/08/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="metodoDAO">Método mediante reflexión que desea acceder a la base de datos.</param>
+            <param name="nombre">Nombre de la consulta en el archivo de configuración.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.CrearQueryDinamica(System.Type,System.String)">
+            <summary>
+            Obtiene una implementación de una consulta que puede cambiar según la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 07/08/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="clase">Clase mediante reflexión, que contiene el método que desea acceder a la base de datos.</param>
+            <param name="nombre">Nombre de la consulta en el archivo de configuración.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.CrearQueryDinamica(System.String)">
+            <summary>
+            Obtiene una implementación de una consulta que puede cambiar según la base de datos.
+            La consulta es obtenida según la clase y el método que lo invocó.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 07/08/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre de la consulta en el archivo de configuración.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.ConexionBaseDatos.CrearQueryDinamica">
+            <summary>
+            Obtiene una implementación de una consulta que puede cambiar según la base de datos.
+            El nombre del archivo depende de la clase que lo invoque, y el nombre de la consulta
+            es igual al nombre del método que lo invocó.
+            </summary>
+            <example>
+                <code>
+                    public class UsuarioDAO
+                    {
+                        ...
+                        public void Agregar(UsuarioTO usuario)
+                        {
+                            Conexion.CrearQueryDinamica(); // El archivo será UsuarioDAO.dbq.xml (referencia), y la consulta será "Agregar".
+                        }
+                    }
+                </code>
+            </example>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 07/08/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos">
+            <summary>
+            Contiene las funciones para mapear datos y filas en tipos C# y TO respectivamente.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.RecortarTexto">
+            <summary>
+            Obtiene o establece un valor que indica si se deben quitar los caracteres de espacio en
+            blanco del principio y el final de cada valor.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.dbTypeWrapper">
+            <summary>
+            Contiene las relaciones entre Tipos de C# y Sql.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.DbTypeWrapper">
+            <summary>
+            Define las relaciones entre Tipos de C# y Sql.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.#ctor">
+            <summary>
+            Inicializa el mapeador asociando los tipos de datos correspondientes.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.Mapear``1(System.Data.IDataRecord,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Mapea la respuesta de la ejecución de un comando a el tipo C# especificado.
+            Puede ser un objeto definido por el usuario, por ejemplo, un TO.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo de la respuesta (entidad).</typeparam>
+            <param name="record">Respuesta obtenida de la ejecución de un comando en una base de datos.</param>
+            <param name="campoPropiedad">Diccionario que asocia el campo de la respuesta con una propiedad de un objeto.</param>
+            <returns>Una instancia cargada del tipo especificado y datos obtenidos de IDataReader (parámetro).</returns>
+            <exception cref="T:System.InvalidOperationException">Excepción lanzada al ocurrir un erro al mapear la respuesta.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.ObtenerFilas(System.Data.IDataReader)">
+            <summary>
+            Obtiene la respuesta de la ejecución de un comando de manera encapsulada, ordenada por fila y columna.
+            Cada diccionario contiene como clave el nombre de las columnas.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="reader">Respuesta de comando.</param>
+            <returns>Encapsulación de respuesta.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.ObtenerFila(System.Data.IDataReader)">
+            <summary>
+            Obtiene la respuesta de la ejecución de un comando de manera encapsulada, ordenada por fila y columna.
+            Cada diccionario contiene como clave el nombre de las columnas.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="reader">Respuesta de comando.</param>
+            <returns>Encapsulación de respuesta.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.ObtenerTipoDestino(System.Type)">
+            <summary>
+            Obtiene el tipo equivalente en Sql para el tipo C#.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="tipo">Tipo de C#.</param>
+            <returns>Tipo de Sql.</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">Excepción lanzada al no existir un mapeador compatible para el tipo.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos.ObtenerTipoDestino(System.Data.DbType)">
+            <summary>
+            Obtiene el tipo equivalente en C# para el tipo Sql.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="tipo">Tipo de Sql.</param>
+            <returns>Tipo de C#.</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">Excepción lanzada al no existir un mapeador compatible para el tipo.</exception>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Mapper.IQueryCreator">
+            <summary>
+            Interfaz que define el comportamiento de las implementaciónes que generan una query como texto.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Mapper.IQueryCreator.ObtenerQuery(Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado)">
+            <summary>
+            Permite obtener el cadena sql para ejecutar un procedimiento almacenado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="procedimientoAlmacenado">Procedimiento almacenado.</param>
+            <returns>Representación en cadena de caracteres.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Mapper.IQueryCreator.ObtenerQuery(Ada.Framework.Data.DBConnector.Queries.DynamicQuery)">
+            <summary>
+            Genera la consulta final remplazando los parametros en la consulta dinámica según corresponda.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="dynamicQuery">Consulta dinámica.</param>
+            <returns>Representación en cadena de caracteres.</returns>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Queries.DynamicQuery">
+            <summary>
+            Representación de una consulta a la base de datos que puede cambiar de implementación.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.DynamicQuery.#ctor(Ada.Framework.Data.DBConnector.ConexionBaseDatos,Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos,Ada.Framework.Data.DBConnector.Mapper.IQueryCreator)">
+            <summary>
+            Constructor que inicializa las propiedades.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+                    2.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): Se añade IQueryCreator.
+            </remarks>
+            <param name="conexion">Representación de la conexión a una base de datos relacional.</param>
+            <param name="mapeadorObjetos">Mapeador encargado de convertir la respuesta de una consulta a un objeto.</param>
+            <param name="creadorQuery">Creador de queries como string.</param>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQuery.Consulta">
+            <summary>
+            Obtiene o establece la consulta del comando.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQuery.Nombre">
+            <summary>
+            Obtiene o establece el nombre de la consulta dinámica.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQuery.TipoBaseDatos">
+            <summary>
+            Obtiene o establece el tipo de base de datos al que corresponde.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQuery.Tipo">
+            <summary>
+            Obtiene o establece el tipo de consulta. Puede ser una ProcedimientoAlmacenado(StoreProcedure) o una Consulta directa (Query). 
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.DynamicQuery.CrearComando">
+            <summary>
+            Crea un comando para la conexión actual. Además de establecer el tipo de comando como SP y
+            la consulta como la especificada en la propiedad <see cref="P:Ada.Framework.Data.DBConnector.Queries.Query.Consulta"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Implementación de un comando sql.</returns>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al recivir una consulta nula o vacia.</exception>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryManager">
+            <summary>
+            Administrador de Dynamic Query.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryManager.CARPETA_DYNAMIC_QUERIES">
+            <summary>
+            Obtiene la ruta de la carpeta donde estan las queries dinámicas(DAO.dq.xml).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryManager.ArchivosConsultas">
+            <summary>
+            Obtiene o establece la fecha de última modificación del archivo con las consultas dinámicas.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryManager.Configuracion">
+            <summary>
+            Obtiene o establece la configuración leida del archivo de consultas XML. 
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryManager.Cargar(Ada.Framework.Data.DBConnector.Queries.DynamicQuery@)">
+            <summary>
+            Carga una consulta dinámica con los datos obtenidos del archivo de configuración.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="dynamicQuery">Consulta dinámica.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryManager.ObtenerConsulta(System.String,System.String,System.Type)">
+            <summary>
+            Obtiene una consulta desde el archivo de configuración, según el nombre de la consulta y el tipo de la base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="nombre">Nombre de la consulta dinámica.</param>
+            <param name="tipoBaseDatos">Tipo de base de datos de la conexión.</param>
+            <param name="tipoDAO">Clase mediante reflexión que desea acceder a la base de datos.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryManager.ObtenerConfiguracion(System.Type)">
+            <summary>
+            Obtiene la configuración desde el archivo XML.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="claseDAO">Tipo de la clase de un DAO.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryRoot">
+            <summary>
+            Representa la raiz de las consultas dinámicas.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryRoot.Consultas">
+            <summary>
+            Obtiene o establece las consultas dinámicas declaradas.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 08/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.QueryTag">
+            <summary>
+            Representación de una consulta como cadena de texto.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 06/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.QueryTag.TipoBaseDatos">
+            <summary>
+            Obtiene o establece el tipo de la base de datos que responde a esta query.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 06/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.QueryTag.Tipo">
+            <summary>
+            Obtiene o establece el tipo de consulta.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 06/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.QueryTag.Consulta">
+            <summary>
+            Obtiene o establece la consulta como cadena de texto.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 06/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryTag">
+            <summary>
+            Representación del tag de una consulta dinámica a base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 06/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryTag.Nombre">
+            <summary>
+            Obtiene o establece el nombre identificador de la consulta dinámica.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 06/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.DynamicQueryConfig.DynamicQueryTag.Consultas">
+            <summary>
+            Obtiene o establece la lista de consultas que posee la consulta dinámica.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 06/10/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Queries.Query">
+            <summary>
+            Representación de una consulta a base de datos relacional.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="F:Ada.Framework.Data.DBConnector.Queries.Query.campoPropiedad">
+            <summary>
+            Contiene el diccionario que asocia el campo de la respuesta con una propiedad de un objeto.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.Query.CreadorQuery">
+            <summary>
+            Obtiene o establece el creador de queries como string.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.Query.Conexion">
+            <summary>
+            Obtiene o establece la representación de la conexión a una base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.Query.Consulta">
+            <summary>
+            Obtiene o establece la consulta del comando.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.Query.CampoPropiedad">
+            <summary>
+            Obtine el diccionario que asocia el campo de la respuesta con una propiedad de un objeto.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.Query.Mapeador">
+            <summary>
+            Obtiene el mapeador de la consulta.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <value>Mapeador encargado de convertir la respuesta de una consulta a un objeto.</value>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.Query.Parametros">
+            <summary>
+            Permite obtener o establecer los parámetros de la consulta actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.Query.#ctor(Ada.Framework.Data.DBConnector.ConexionBaseDatos,Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos,Ada.Framework.Data.DBConnector.Mapper.IQueryCreator)">
+            <summary>
+            Constructor que inicializa las propiedades.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+                    2.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): Se añade IQueryCreator.
+            </remarks>
+            <param name="conexion">Representación de la conexión a una base de datos relacional.</param>
+            <param name="mapeadorObjetos">Mapeador encargado de convertir la respuesta de una consulta a un objeto.</param>
+            <param name="creadorQuery">Creador de queries como string.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.Query.CrearComando">
+            <summary>
+            Crea un comando para la conexión actual. Además de establecer el tipo de comando como SP y
+            la consulta como la especificada en la propiedad <see cref="P:Ada.Framework.Data.DBConnector.Queries.Query.Consulta"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Implementación de un comando sql.</returns>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al recivir una consulta nula o vacia.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.Query.Obtener``1">
+            <summary>
+            Obtiene un elemento (1 fila) de la respuesta obtenida al ejecutar la instancia actual (Procedimiento Almacenado).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo de la respuesta (fila).</typeparam>
+            <returns>Una instancia cargada del tipo especificado, y datos retornados por la ejecución.</returns>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al no establecer el nombre del procedimiento almacenado.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.Query.Obtener">
+            <summary>
+            Obtiene un elemento (1 fila) de la respuesta obtenida al ejecutar la instancia actual (Procedimiento Almacenado).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Diccionario cuya clave es el nombre del campo.</returns>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.Query.Ejecutar">
+            <summary>
+            Permite realizar una ejecución sin respuesta a una base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.Query.Consultar``1">
+            <summary>
+            Obtiene una colección de elementos, a partir de la respuesta obtenida al ejecutar la instancia actual (Procedimiento Almacenado).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo de la respuesta (entidad).</typeparam>
+            <returns>Colección del tipo especificado.</returns>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.Query.Consultar">
+            <summary>
+            Obtiene una colección de elementos, a partir de la respuesta obtenida al ejecutar la instancia actual (Procedimiento Almacenado).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Colección de diccionarios cuya clave corresponde al nombre de los campos obtenidos.</returns>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.Query.CargarParametros(System.Data.IDbCommand@)">
+            <summary>
+            Carga los parámetros definidos, al comando recivido como párametro.
+            Se sugiere crear el comando con el método <see cref="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.CrearComando"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="comando">Comando sql.</param>
+            <returns>Implementación de un comando sql.</returns>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado">
+            <summary>
+            Representación de un SP (Store Procedure) o Procedimiento Almacenado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.Nombre">
+            <summary>
+            Permite obtener o establecer el nombre del procedimiento almacenado que representa la instancia actual.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.Consulta">
+            <summary>
+            Obtiene o establece la consulta del comando.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.#ctor(Ada.Framework.Data.DBConnector.ConexionBaseDatos,Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos,Ada.Framework.Data.DBConnector.Mapper.IQueryCreator)">
+            <summary>
+            Constructor que inicializa las propiedades.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="conexion">Representación de la conexión a una base de datos relacional.</param>
+            <param name="mapeadorObjetos">Mapeador que utilizará el procedimiento para transformar la respuesta de sus ejecuciones.</param>
+            <param name="creadorQuery">Creador de queries como string.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.Obtener``1">
+            <summary>
+            Obtiene un elemento (1 fila) de la respuesta obtenida al ejecutar la instancia actual (Procedimiento Almacenado).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo de la respuesta (fila).</typeparam>
+            <returns>Una instancia cargada del tipo especificado, y datos retornados por la ejecución.</returns>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al no establecer el nombre del procedimiento almacenado.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.Obtener">
+            <summary>
+            Obtiene un elemento (1 fila) de la respuesta obtenida al ejecutar la instancia actual (Procedimiento Almacenado).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Diccionario cuya clave es el nombre del campo.</returns>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al no establecer el nombre del procedimiento almacenado.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.Ejecutar">
+            <summary>
+            Permite realizar una ejecución sin respuesta a una base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al no establecer el nombre del procedimiento almacenado.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.Consultar``1">
+            <summary>
+            Obtiene una colección de elementos, a partir de la respuesta obtenida al ejecutar la instancia actual (Procedimiento Almacenado).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <typeparam name="T">Tipo de la respuesta (entidad).</typeparam>
+            <returns>Colección del tipo especificado.</returns>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al no establecer el nombre del procedimiento almacenado.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.Consultar">
+            <summary>
+            Obtiene una colección de elementos, a partir de la respuesta obtenida al ejecutar la instancia actual (Procedimiento Almacenado).
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Colección del tipo especificado.</returns>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.EjecutarException">Excepción lanzada al ocurrir un error al realizar la consulta.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al no establecer el nombre del procedimiento almacenado.</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al abrir la conexión.</exception>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al existir un problema con la cadena de conexión(ConnectionString).</exception>
+            <exception cref="T:Ada.Framework.Data.DBConnector.Exceptions.ConexionException">Excepción lanzada al existir un problema al cerrar la conexión.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.CrearComando">
+            <summary>
+            Crea un comando para la conexión actual. Además de establecer el tipo de comando como SP y
+            el nombre como el indicado en la propiedad <see cref="P:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.Nombre"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <returns>Implementación de un comando sql.</returns>
+            <exception cref="T:System.ArgumentException">Excepción lanzada al no establecer el nombre del procedimiento almacenado.</exception>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.CargarParametros(System.Data.IDbCommand@)">
+            <summary>
+            Carga los parámetros definidos, al comando recivido como párametro.
+            Se sugiere crear el comando con el método <see cref="M:Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado.CrearComando"/>.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="comando">Comando sql.</param>
+            <returns>Implementación de un comando sql.</returns>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.SqlServer.ConexionBaseDatos">
+            <summary>
+            Representa la conexión a una base de datos relacional.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.ConexionBaseDatos.#ctor(Ada.Framework.Data.DBConnector.Entities.DataBase.ConexionTO)">
+            <summary>
+            Constructor que instancia el tipo de base de datos especificada.
+            La conexión por defecto es SqlServer.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="db">Base de datos.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.ConexionBaseDatos.CrearQuery">
+            <summary>
+            Obtiene una implementación de la representación de una consulta a base de datos.
+            </summary>
+            <returns>Implementación de una  consulta a base de datos.</returns>
+            <remarks>Registro de versiones:
+            1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.</remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.ConexionBaseDatos.CrearProcedimientoAlmacenado">
+            <summary>
+            Obtiene una implementación de un procedimiento almacenado.
+            </summary>
+            <returns>Implementación de un procedimiento almacenado.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.ConexionBaseDatos.CrearTransaccion(System.Data.IsolationLevel)">
+            <summary>
+            Crea una transacción para agrupar las ejecuciones de la instancia actual. Además comienza la transacción y abre la conexión.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="isolationLevel">Especifica el comportamiento de bloqueo de la transacción para la conexión.Opcional.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.SqlServer.Mapper.MapeadorDeObjetos">
+            <summary>
+            Contiene las funciones para mapear datos y filas en tipos C# y TO respectivamente.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.Mapper.MapeadorDeObjetos.#ctor">
+            <summary>
+            Inicializa el mapeador asociando los tipos de datos correspondientes.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.SqlServer.Mapper.QueryCreator">
+            <summary>
+            Creador de consultas como texto.
+            </summary>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.Mapper.QueryCreator.ObtenerQuery(Ada.Framework.Data.DBConnector.Queries.SP.ProcedimientoAlmacenado)">
+            <summary>
+            Permite obtener el cadena sql para ejecutar un procedimiento almacenado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="procedimientoAlmacenado">Procedimiento almacenado.</param>
+            <returns>Representación en cadena de caracteres.</returns>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.Mapper.QueryCreator.ObtenerQuery(Ada.Framework.Data.DBConnector.Queries.DynamicQuery)">
+            <summary>
+            Genera la consulta final remplazando los parametros en la consulta dinámica según corresponda.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 31/07/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="dynamicQuery">Consulta dinámica.</param>
+            <returns>Representación en cadena de caracteres.</returns>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.SqlServer.Queries.Query">
+            <summary>
+            Representación de una consulta a base de datos relacional. Esta clase no puede heredarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.Queries.Query.#ctor(Ada.Framework.Data.DBConnector.SqlServer.ConexionBaseDatos,Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos,Ada.Framework.Data.DBConnector.Mapper.IQueryCreator)">
+            <summary>
+            Constructor que inicializa las propiedades.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="conexion">Representación de la conexión a una base de datos relacional.</param>
+            <param name="mapeadorObjetos">Mapeador encargado de convertir la respuesta de una consulta a un objeto.</param>
+            <param name="creadorQuery">Creador de queries como string.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.SqlServer.Queries.SP.ProcedimientoAlmacenado">
+            <summary>
+            Representación de un SP (Store Procedure) o Procedimiento Almacenado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.Queries.SP.ProcedimientoAlmacenado.#ctor(Ada.Framework.Data.DBConnector.SqlServer.ConexionBaseDatos,Ada.Framework.Data.DBConnector.Mapper.MapeadorDeObjetos,Ada.Framework.Data.DBConnector.Mapper.IQueryCreator)">
+            <summary>
+            Constructor que inicializa las propiedades.
+            </summary>
+            <param name="conexion">Conexión con base de datos.</param>
+            <param name="mapeadorObjetos">Mapeador encargado de convertir la respuesta de una ejecución a un objeto.</param>
+            <param name="creadorQuery">Creador de queries como string.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.SqlServer.Transaction.Transaccion">
+            <summary>
+            Representación de una transacción de SQL Server.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.SqlServer.Transaction.Transaccion.#ctor(System.Data.IDbConnection,System.Data.IsolationLevel)">
+            <summary>
+            Constructor que inicializa los campos de la transacción
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="conexion">Representación de la conexión a una base de datos.</param>
+            <param name="isolationLevel">Comportamiento de bloqueo de la transacción para la conexión.</param>
+        </member>
+        <member name="T:Ada.Framework.Data.DBConnector.Transaction.Transaccion">
+            <summary>
+            Representación de una transacción Sql.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Transaction.Transaccion.Conexion">
+            <summary>
+            Obtiene o establece la representación de la conexión a una base de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Transaction.Transaccion.DbTransaction">
+            <summary>
+            Obtiene o establece la epresentación una transacción que se debe realizar en un origen de datos.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Data.DBConnector.Transaction.Transaccion.IsolationLevel">
+            <summary>
+            Obtiene o establece el comportamiento de bloqueo de la transacción para la conexión.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Transaction.Transaccion.#ctor(System.Data.IDbConnection,System.Data.IsolationLevel)">
+            <summary>
+            Constructor que inicializa los campos de la transacción
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="conexion">Representación de la conexión a una base de datos.</param>
+            <param name="isolationLevel">Comportamiento de bloqueo de la transacción para la conexión.</param>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Transaction.Transaccion.Iniciar">
+            <summary>
+            Comienza la transacción en una conexión y abre la conexión.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Transaction.Transaccion.Commit">
+            <summary>
+            Confirma la transacción a la base de datos y cierra automáticamente la conexión.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Data.DBConnector.Transaction.Transaccion.RollBack">
+            <summary>
+            Deshace una transacción desde un estado pendiente y cierra automáticamente la conexión.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+    </members>
+</doc>

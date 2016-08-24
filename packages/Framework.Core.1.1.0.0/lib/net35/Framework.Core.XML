@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Ada.Framework.Core.CustomAttributes.Development.NoDocumentado">
+            <summary>
+            Especifica quela funcionalidad no ha sido implementada todavía.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Core.CustomAttributes.Development.NoImplementado">
+            <summary>
+            Especifica quela funcionalidad no ha sido implementada todavía.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="T:Ada.Framework.Core.CustomAttributes.Development.Dummy">
+            <summary>
+            Especifica que un objeto es un Dummy o valor de prueba y debe cambiarse.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Core.CustomAttributes.Development.Dummy.Cambiar">
+            <summary>
+            Obtiene o establece un valor que indica si el Dummy debe ser reemplazado.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Core.CustomAttributes.Development.Dummy.#ctor(System.Boolean)">
+            <summary>
+            Constructor que inicializa las propiedades del atributo.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="cambiar">Valor que indica si se debe cambiar el valor o será el definitivo.</param>
+        </member>
+        <member name="T:Ada.Framework.Core.CustomAttributes.Object.Inmutable">
+            <summary>
+            Especifica que un objeto no tiene subpropiedades que se puedan editar.Esta clase no se puede heredar.
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="P:Ada.Framework.Core.CustomAttributes.Object.Inmutable.EsInmutable">
+            <summary>
+            
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+        </member>
+        <member name="M:Ada.Framework.Core.CustomAttributes.Object.Inmutable.#ctor(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <remarks>
+                Registro de versiones:
+                
+                    1.0 02/03/2015 Marcos Abraham Hernández Bravo (Ada Ltda.): versión inicial.
+            </remarks>
+            <param name="esInmutable"></param>
+        </member>
+    </members>
+</doc>
